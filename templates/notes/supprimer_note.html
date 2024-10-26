@@ -1,0 +1,6 @@
+<h1>Supprimer la note de {{ note.etudiant.nom }} pour {{ note.ec.nom_ec }}</h1>
+<p>Êtes-vous sûr de vouloir supprimer cette note ?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Supprimer</button>
+</form>

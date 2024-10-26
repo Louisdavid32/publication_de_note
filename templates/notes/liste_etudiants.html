@@ -1,0 +1,10 @@
+<h1>Liste des étudiants</h1>
+<ul>
+    {% for etudiant in etudiants %}
+        <li>
+            <a href="{% url 'detail_notes' etudiant.id %}">{{ etudiant.matricule }} - {{ etudiant.nom }}</a>
+            <a href="{% url 'modifier_etudiant' etudiant.id %}">Modifier</a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'ajouter_etudiant' %}">Ajouter un étudiant</a>

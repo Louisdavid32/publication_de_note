@@ -1,0 +1,41 @@
+<h1>Notes de {{ etudiant.nom }}</h1>
+<table>
+    <thead>
+        <tr>
+            <th>UE</th>
+            <th>EC</th>
+            <th>CC1</th>
+            <th>CC2</th>
+            <th>CC3</th>
+            <th>Session normale</th>
+            <th>Session avant</th>
+            <th>Moyenne</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for note in notes %}
+            <tr>
+                <td>{{ note.ec.ue.nom_ue }}</td>
+                <td>{{ note.ec.nom_ec }}</td>
+                <td>{{ note.cc1 }}</td>
+                <td>{{ note.cc2 }}</td>
+                <td>{{ note.cc3 }}</td>
+                <td>{{ note.session_normale }}</td>
+                <td>{{ note.session_avant }}</td>
+                <td>{{ note.moyenne }}</td>
+                <td>
+                    <a href="{% url 'modifier_note' note.id %}">Modifier</a>
+                    <a href="{% url 'supprimer_note' note.id %}">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'ajouter_note' etudiant.id %}">Ajouter une note</a> <br>
+<a href="{% url 'modifier_etudiant' etudiant.id %}">modifier_etudiant</a><br>
+<a href="{% url 'supprimer_etudiant' etudiant.id %}">supprimer_etudiant</a><br>
+<a href="{% url 'ajouter_note' etudiant.id %}">Ajouter note</a><br>
+<a href="{% url 'modifier_note' etudiant.id %}">modifier_note</a><br>
+<a href="{% url 'supprimer_note' etudiant.id %}">supp note</a><br>
+
